@@ -9,11 +9,6 @@ import {
   AccountCircle,
   Event
 } from '@material-ui/icons';
-// import HomeIcon from '@material-ui/icons/Home';
-// import MenuBookIcon from '@material-ui/icons/MenuBook';
-// import LocalMallIcon from '@material-ui/icons/LocalMall';
-// import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-// import EventIcon from '@material-ui/icons/Event';
 
 const useStyles = makeStyles({
   root: {
