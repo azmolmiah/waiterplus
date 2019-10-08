@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 
 const RestaurantInfos = () => {
-  const [info, setInfo] = useState([]);
+  const [info, setInfo] = useState();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -15,23 +15,23 @@ const RestaurantInfos = () => {
       'https://waiterplus.uk/api/c/1.57.4/public/api/v2/fr/get_outlet_details',
       {
         method: 'GET',
-
         headers: {
           'Content-Type': 'application/json',
-          'outlet': 'modhubon'
+          outlet: 'modhubon'
         }
       }
     );
     const data = await res.json();
-    console.log(data);
+
     setInfo(data);
+    console.log(data.value);
     setLoading(false);
   };
 
   if (loading) {
     return <h4>Loading...</h4>;
   }
-  return <div></div>;
+  return <Fragment></Fragment>;
 };
 
 export default RestaurantInfos;
