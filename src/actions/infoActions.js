@@ -1,5 +1,6 @@
 import { GET_INFOS, SET_LOADING, INFOS_ERROR } from './types';
 
+// Get infos
 export const getInfos = () => async dispatch => {
   try {
     setLoading();
@@ -9,11 +10,13 @@ export const getInfos = () => async dispatch => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          outlet: 'modhubon'
+          'outlet': 'modhubon'
         }
       }
     );
     const data = await res.json();
+    console.log(data);
+
     dispatch({
       type: GET_INFOS,
       payload: data

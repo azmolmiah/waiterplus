@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import BottomNav from './components/layouts/BottomNav';
 import RestaurantInfo from './components/restaurant/RestaurantInfos';
-import Header from './components/layouts/Header';
+import Header from './components/layouts/home/Header';
 import { Provider } from 'react-redux';
 import store from './store';
 
