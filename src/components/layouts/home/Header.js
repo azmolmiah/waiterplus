@@ -1,13 +1,15 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
+import React, { Fragment } from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
 
 const Header = () => {
   return (
-    <Grid container spacing={0}>
-      <Grid item xs={12}>
+    <Fragment>
+      <CssBaseline />
+      <Container maxWidth="sm">
         <h1>Modhubon</h1>
-      </Grid>
-    </Grid>
+      </Container>
+    </Fragment>
   );
 };
 
