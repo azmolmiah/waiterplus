@@ -4,15 +4,24 @@ import PropTypes from 'prop-types';
 import { getInfos } from '../../actions/infoActions';
 
 const RestaurantInfos = ({ info: { infos, loading }, getInfos }) => {
+  const date = new Date();
   useEffect(() => {
+
+
     getInfos();
+
+    console.log(date.getHours())
+
     //eslint-disable-next-line
   }, []);
 
   if (loading || infos === null) {
     return <h4>Loading...</h4>;
+  } else {
+    console.log(infos);
   }
-  return <Fragment></Fragment>;
+
+  return <Fragment></Fragment>
 };
 
 RestaurantInfos.propTypes = {
