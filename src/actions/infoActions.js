@@ -1,15 +1,18 @@
 import { GET_INFOS, SET_LOADING, INFOS_ERROR } from './types';
-import moment from 'moment';
 
 // Get infos
 export const getInfos = () => async dispatch => {
+  const date = new Date();
+  const threeHours = 60 * 60 * 1000 * 3;
+  const initTime = JSON.parse(localStorage.getItem('initTime'));
+  const timeNow = date.getTime();
+  const diff = timeNow - initTime;
+
   try {
     setLoading();
-
-    let a = moment(JSON.parse(localStorage.getItem('time')));
-    const diff = a.fromNow(true);
-
-    if (localStorage.getItem('infos') === null || diff === '3 hours') {
+    // Check if local storage is empty or 3 hours old/older
+    if (localStorage.getItem('infos') === null || diff > threeHours) {
+      console.log('more than three hours or local storage is empty');
       const res = await fetch(
         'https://waiterplus.uk/api/c/1.57.4/public/api/v2/fr/get_outlet_details',
         {
@@ -24,13 +27,14 @@ export const getInfos = () => async dispatch => {
 
       // Save time and data for local storage as well to use for the next three hours
       localStorage.setItem('infos', JSON.stringify(data));
-      localStorage.setItem('time', JSON.stringify(moment()));
+      localStorage.setItem('initTime', JSON.parse(date.getTime()));
 
       dispatch({
         type: GET_INFOS,
         payload: data
       });
     } else {
+      console.log('less than three hours');
       dispatch({
         type: GET_INFOS,
         payload: JSON.parse(localStorage.getItem('infos'))
