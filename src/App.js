@@ -1,9 +1,9 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import './App.css';
 import BottomNav from './components/layouts/BottomNav';
 import RestaurantInfo from './components/restaurant/RestaurantInfos';
-import Header from './components/layouts/home/Header';
-import { Provider } from 'react-redux';
+import HomePage from './components/layouts/index/HomePage';
 import store from './store';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <div className='App'>
       <Provider store={store}>
         <RestaurantInfo />
-        <Header />
+        <HomePage />
         <BottomNav />
       </Provider>
     </div>
