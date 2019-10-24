@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 
-const About = ({ header, sub, about }) => {
+const About = ({ header, sub, about, aboutAlias }) => {
   return (
-    <div>
+    <Fragment>
       <Container maxWidth='md'>
         <Grid container justify='center'>
           <h1>{header}</h1>
@@ -21,7 +21,27 @@ const About = ({ header, sub, about }) => {
           </Box>
         </Grid>
       </Container>
-    </div>
+      <div
+        style={{
+          background: `url('https://${aboutAlias}.com/webapp-php-live/assets/img/home_bg-2.jpg') no-repeat center center fixed`,
+          backgroundSize: 'cover',
+          minHeight: '40vh'
+        }}
+      >
+        <Container maxWidth='md' style={{ color: 'white' }}>
+          <Grid container justify='center'>
+            <Box textAlign='center'>
+              <h1>Welcome</h1>
+            </Box>
+          </Grid>
+          <Grid container justify='center'>
+            <Box textAlign='center'>
+              <h4>To Our New App</h4>
+            </Box>
+          </Grid>
+        </Container>
+      </div>
+    </Fragment>
   );
 };
 

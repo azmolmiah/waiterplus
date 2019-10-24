@@ -22,13 +22,19 @@ const HomePage = ({ info: { infos, loading }, getInfos }) => {
   } else {
     console.log(infos);
     const {
-      outlet: { name, alias, short_description, long_description }
+      outlet: { name, alias, short_description, long_description },
+      meta_title
     } = infos.value;
     return (
       <Fragment>
         <CssBaseline />
-        <Header alias={alias} />
-        <About header={name} sub={short_description} about={long_description} />
+        <Header alias={alias} title={meta_title} />
+        <About
+          header={name}
+          sub={short_description}
+          about={long_description}
+          aboutAlias={alias}
+        />
         <OpeningTimes />
         <Details />
       </Fragment>
