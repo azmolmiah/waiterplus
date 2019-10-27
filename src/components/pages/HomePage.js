@@ -5,11 +5,11 @@ import { getInfos } from '../../actions/infoActions';
 
 import Header from '../layouts/index/Header';
 import About from '../layouts/index/About';
-import OpeningTimes from '../layouts/index/OpeningTimes';
 import Details from '../layouts/index/Details';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Container from '@material-ui/core/Container';
 
 const HomePage = ({ info: { infos, loading }, getInfos }) => {
   useEffect(() => {
@@ -35,8 +35,9 @@ const HomePage = ({ info: { infos, loading }, getInfos }) => {
           about={long_description}
           aboutAlias={alias}
         />
-        <OpeningTimes />
-        <Details />
+        <Container>
+          <Details />
+        </Container>
       </Fragment>
     );
   }

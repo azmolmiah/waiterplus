@@ -25,21 +25,13 @@ const About = ({ header, sub, about, aboutAlias }) => {
         style={{
           background: `url('https://${aboutAlias}.com/webapp-php-live/assets/img/home_bg-2.jpg') no-repeat center center fixed`,
           backgroundSize: 'cover',
-          minHeight: '40vh'
+          Height: '20vh'
         }}
       >
-        <Container maxWidth='md' style={{ color: 'white' }}>
-          <Grid container justify='center'>
-            <Box textAlign='center'>
-              <h1>Welcome</h1>
-            </Box>
-          </Grid>
-          <Grid container justify='center'>
-            <Box textAlign='center'>
-              <h4>To Our New App</h4>
-            </Box>
-          </Grid>
-        </Container>
+        <Box textAlign='center' style={{ padding: '5%', color: 'white' }}>
+          <h1>Welcome</h1>
+          <h4>To Our New App</h4>
+        </Box>
       </div>
     </Fragment>
   );

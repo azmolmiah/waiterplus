@@ -3,8 +3,9 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-
-// Make table day and times into objects then map through them in the table boy
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 
 const OpeningTimes = () => {
   const state = [
@@ -19,20 +20,26 @@ const OpeningTimes = () => {
 
   return (
     <div>
-      <h1>Opening Times</h1>
-      Times may change on public holidays
-      <Table>
-        <TableBody>
-          {state.map(row => {
-            return (
-              <TableRow key={row.day}>
-                <TableCell>{row.day}</TableCell>
-                <TableCell>{row.time}</TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
+      <Grid item xs={2}>
+        <ScheduleIcon />
+      </Grid>
+
+      <Grid item xs={10}>
+        <h1>Opening Times</h1>
+        Times may change on public holidays
+        <Table>
+          <TableBody>
+            {state.map(row => {
+              return (
+                <TableRow key={row.day}>
+                  <TableCell>{row.day}</TableCell>
+                  <TableCell>{row.time}</TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </Grid>
     </div>
   );
 };
