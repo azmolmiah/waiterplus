@@ -23,7 +23,12 @@ const HomePage = ({ info: { infos, loading }, getInfos }) => {
     console.log(infos);
     const {
       outlet: { name, alias, short_description, long_description },
-      meta_title
+      meta_title,
+      phone1,
+      address1,
+      address2,
+      address3,
+      building_number
     } = infos.value;
     return (
       <Fragment>
@@ -36,7 +41,13 @@ const HomePage = ({ info: { infos, loading }, getInfos }) => {
           aboutAlias={alias}
         />
         <Container>
-          <Details />
+          <Details
+            phone={phone1}
+            address1={address1}
+            address2={address2}
+            address3={address3}
+            building_number={building_number}
+          />
         </Container>
       </Fragment>
     );

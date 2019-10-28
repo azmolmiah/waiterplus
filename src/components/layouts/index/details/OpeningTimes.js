@@ -1,11 +1,12 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+
 import ScheduleIcon from '@material-ui/icons/Schedule';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 
 const OpeningTimes = () => {
   const state = [
@@ -20,25 +21,27 @@ const OpeningTimes = () => {
 
   return (
     <div>
-      <Grid item xs={2}>
-        <ScheduleIcon />
-      </Grid>
+      <Grid container>
+        <Grid item xs={2} style={{ paddingTop: '5%' }}>
+          <ScheduleIcon style={{ fontSize: 40, color: 'red' }} />
+        </Grid>
 
-      <Grid item xs={10}>
-        <h1>Opening Times</h1>
-        Times may change on public holidays
-        <Table>
-          <TableBody>
-            {state.map(row => {
-              return (
-                <TableRow key={row.day}>
-                  <TableCell>{row.day}</TableCell>
-                  <TableCell>{row.time}</TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
+        <Grid item xs={10}>
+          <h1>Opening Times</h1>
+          Times may change on public holidays
+          <Table>
+            <TableBody>
+              {state.map(row => {
+                return (
+                  <TableRow key={row.day}>
+                    <TableCell>{row.day}</TableCell>
+                    <TableCell>{row.time}</TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </Grid>
       </Grid>
     </div>
   );

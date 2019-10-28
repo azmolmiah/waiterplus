@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 const About = ({ header, sub, about, aboutAlias }) => {
   return (
     <Fragment>
-      <Container maxWidth='md'>
+      <Container maxWidth='md' style={{ padding: '5%' }}>
         <Grid container justify='center'>
           <h1>{header}</h1>
         </Grid>
