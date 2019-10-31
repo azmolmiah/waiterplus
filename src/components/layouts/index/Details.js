@@ -1,14 +1,21 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 
+import Grid from '@material-ui/core/Grid';
 import OpeningTimes from './details/OpeningTimes';
 import Phone from './details/Phone';
 import Address from './details/Address';
 import DeliveryInfo from './details/DeliveryInfo';
 
-const Details = ({ phone, address1, address2, address3, building_number }) => {
+const Details = ({
+  phone,
+  address1,
+  address2,
+  city,
+  building_number,
+  postcode
+}) => {
   return (
-    <div>
+    <div style={{ padding: '4% 0' }}>
       <Grid container>
         <Grid item xs={12} md={4}>
           <OpeningTimes />
@@ -20,8 +27,9 @@ const Details = ({ phone, address1, address2, address3, building_number }) => {
           <Address
             address1={address1}
             address2={address2}
-            address3={address3}
+            city={city}
             building_number={building_number}
+            postcode={postcode}
           />
         </Grid>
         <Grid item xs={12} md={4}>

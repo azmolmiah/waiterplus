@@ -6,6 +6,7 @@ import { getInfos } from '../../actions/infoActions';
 import Header from '../layouts/index/Header';
 import About from '../layouts/index/About';
 import Details from '../layouts/index/Details';
+import Maps from '../layouts/index/Maps';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -27,8 +28,11 @@ const HomePage = ({ info: { infos, loading }, getInfos }) => {
       phone1,
       address1,
       address2,
-      address3,
-      building_number
+      city,
+      building_number,
+      postcode,
+      longitude,
+      latitude
     } = infos.value;
     return (
       <Fragment>
@@ -45,10 +49,12 @@ const HomePage = ({ info: { infos, loading }, getInfos }) => {
             phone={phone1}
             address1={address1}
             address2={address2}
-            address3={address3}
+            city={city}
             building_number={building_number}
+            postcode={postcode}
           />
         </Container>
+        <Maps longitude={Number(longitude)} latitude={Number(latitude)} />
       </Fragment>
     );
   }

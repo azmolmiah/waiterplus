@@ -1,9 +1,10 @@
 import React from 'react';
+
 import Grid from '@material-ui/core/Grid';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Box from '@material-ui/core/Box/Box';
 
-const Address = ({ address1, address2, address3, building_number }) => {
+const Address = ({ address1, address2, city, building_number, postcode }) => {
   return (
     <div>
       <Grid container>
@@ -15,7 +16,8 @@ const Address = ({ address1, address2, address3, building_number }) => {
           <Box>{building_number}</Box>
           <Box>{address1}</Box>
           <Box>{address2}</Box>
-          <Box>{address3}</Box>
+          <Box>{city}</Box>
+          <Box>{postcode}</Box>
         </Grid>
       </Grid>
     </div>

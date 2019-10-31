@@ -1,11 +1,10 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 
+import Grid from '@material-ui/core/Grid';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-
 import ScheduleIcon from '@material-ui/icons/Schedule';
 
 const OpeningTimes = () => {
@@ -34,7 +33,9 @@ const OpeningTimes = () => {
               {state.map(row => {
                 return (
                   <TableRow key={row.day}>
-                    <TableCell>{row.day}</TableCell>
+                    <TableCell style={{ paddingLeft: '0' }}>
+                      {row.day}
+                    </TableCell>
                     <TableCell>{row.time}</TableCell>
                   </TableRow>
                 );
