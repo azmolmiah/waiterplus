@@ -6,7 +6,7 @@ import { getInfos } from '../../actions/infoActions';
 import Header from '../layouts/index/Header';
 import About from '../layouts/index/About';
 import Details from '../layouts/index/Details';
-import Maps from '../layouts/index/Maps';
+import GoogleMaps from '../layouts/index/GoogleMaps';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -54,7 +54,7 @@ const HomePage = ({ info: { infos, loading }, getInfos }) => {
             postcode={postcode}
           />
         </Container>
-        <Maps longitude={Number(longitude)} latitude={Number(latitude)} />
+        <GoogleMaps longitude={Number(longitude)} latitude={Number(latitude)} />
       </Fragment>
     );
   }
