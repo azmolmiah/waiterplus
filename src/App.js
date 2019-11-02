@@ -1,8 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import './App.css';
-import BottomNav from './components/layouts/BottomNav';
+
 import HomePage from './components/pages/HomePage';
+import TopNav from './components/layouts/TopNav';
+import BottomNav from './components/layouts/BottomNav';
+import Footer from './components/layouts/Footer';
+
 import store from './store';
 
 function App() {
@@ -10,6 +14,7 @@ function App() {
     <div className='App'>
       <Provider store={store}>
         <HomePage />
+        <Footer />
         <BottomNav />
       </Provider>
     </div>
