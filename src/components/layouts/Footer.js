@@ -17,8 +17,10 @@ const Footer = ({ name, footerDesc }) => {
       <Container>
         <Grid container>
           <Grid item xs={12} md={6}>
-            <h2>{name}</h2>
-            <p>{footerDesc}</p>
+            <Box pr={2}>
+              <h2>{name}</h2>
+              <p>{footerDesc}</p>
+            </Box>
           </Grid>
           <Grid item xs={6} md={3}>
             <h2>Customer Service</h2>

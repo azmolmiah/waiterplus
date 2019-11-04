@@ -13,6 +13,7 @@ function App() {
     <div className='App'>
       <Provider store={store}>
         <HomePage />
+        <TopNav />
         <BottomNav />
       </Provider>
     </div>
