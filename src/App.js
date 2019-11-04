@@ -1,23 +1,26 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import './App.css';
-
+import withSizes from 'react-sizes';
 import HomePage from './components/pages/HomePage';
 import TopNav from './components/layouts/TopNav';
 import BottomNav from './components/layouts/BottomNav';
 
 import store from './store';
 
-function App() {
+const App = ({ isMobile }) => {
   return (
     <div className='App'>
       <Provider store={store}>
         <HomePage />
-        <TopNav />
-        <BottomNav />
+        {isMobile ? <BottomNav /> : <TopNav />}
       </Provider>
     </div>
   );
-}
+};
 
-export default App;
+const mapSizesToProps = ({ width }) => ({
+  isMobile: width < 480
+});
+
+export default withSizes(mapSizesToProps)(App);

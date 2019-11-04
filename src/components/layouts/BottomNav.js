@@ -16,6 +16,9 @@ const useStyles = makeStyles({
     position: 'fixed',
     bottom: 0,
     backgroundColor: '#93278f'
+  },
+  icon: {
+    color: 'white'
   }
 });
 
@@ -36,27 +39,27 @@ export default function LabelBottomNavigation() {
       <BottomNavigationAction
         label='Home'
         value='home'
-        icon={<Home style={{ color: '#fff' }} />}
+        icon={<Home className={classes.icon} />}
       />
       <BottomNavigationAction
         label='Bookings'
         value='bookings'
-        icon={<Event style={{ color: '#fff' }} />}
+        icon={<Event className={classes.icon} />}
       />
       <BottomNavigationAction
         label='Menu'
         value='menu'
-        icon={<MenuBook style={{ color: '#fff' }} />}
+        icon={<MenuBook className={classes.icon} />}
       />
       <BottomNavigationAction
         label='Cart'
         value='cart'
-        icon={<LocalMall style={{ color: '#fff' }} />}
+        icon={<LocalMall className={classes.icon} />}
       />
       <BottomNavigationAction
         label='Account'
         value='account'
-        icon={<AccountCircle style={{ color: '#fff' }} />}
+        icon={<AccountCircle className={classes.icon} />}
       />
     </BottomNavigation>
   );
