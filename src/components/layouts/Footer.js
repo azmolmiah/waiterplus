@@ -6,7 +6,7 @@ import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import RefreshIcon from '@material-ui/icons/Refresh';
 
-const Footer = () => {
+const Footer = ({ name, footerDesc }) => {
   const styles = {
     padding: '4% 0',
     backgroundColor: '#4a1448',
@@ -17,11 +17,8 @@ const Footer = () => {
       <Container>
         <Grid container>
           <Grid item xs={12} md={6}>
-            <h2>Brief About</h2>
-            <p>
-              Modhubon of Oldham is proud to offer the best Indian cuisine, with
-              age old recipes from Indian sub continent.
-            </p>
+            <h2>{name}</h2>
+            <p>{footerDesc}</p>
           </Grid>
           <Grid item xs={6} md={3}>
             <h2>Customer Service</h2>
@@ -42,7 +39,7 @@ const Footer = () => {
             </List>
           </Grid>
         </Grid>
-        <Divider light />
+        <Divider />
         <Grid container justify='center'>
           <Box m={1}>
             <img
@@ -73,16 +70,16 @@ const Footer = () => {
             />
           </Box>
         </Grid>
-        <Divider light />
+        <Divider />
 
-        <Grid container justify='center' xs={12}>
+        <Grid container justify='center'>
           <Box pt={1}>
             &copy; {new Date().getFullYear()} Powered by: WaiterPlus 2.6.94
           </Box>
         </Grid>
-        <Grid container justify='center' xs={12}>
+        <Grid container justify='center'>
           <Box mb={8}>
-            <RefreshIcon /> Reset App
+            <RefreshIcon style={{ fontSize: 13 }} /> Reset App
           </Box>
         </Grid>
       </Container>
