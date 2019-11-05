@@ -48,8 +48,8 @@ export default function LabelBottomNavigation() {
     <RouterLink innerRef={ref} to='/checkout' {...props} />
   ));
 
-  const loginLink = React.forwardRef((props, ref) => (
-    <RouterLink innerRef={ref} to='/login' {...props} />
+  const accountLink = React.forwardRef((props, ref) => (
+    <RouterLink innerRef={ref} to='/account' {...props} />
   ));
 
   return (
@@ -87,10 +87,10 @@ export default function LabelBottomNavigation() {
       />
 
       <BottomNavigationAction
-        label='Login'
-        value='login'
+        label='Account'
+        value='account'
         icon={<AccountCircle className={classes.icon} />}
-        component={loginLink}
+        component={accountLink}
       />
     </BottomNavigation>
   );

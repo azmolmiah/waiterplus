@@ -15,7 +15,9 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    color: 'white',
+    textDecoration: 'none'
   },
   bg: {
     backgroundColor: '#93278f'
@@ -28,21 +30,21 @@ export default function ButtonAppBar() {
   return (
     <div className={classes.root}>
       <AppBar position='fixed' className={classes.bg}>
-        <Toolbar>
+        <Toolbar className={classes.link}>
           <Typography edge='start' variant='h6' className={classes.title}>
             <Link to='/'>News</Link>
           </Typography>
           <Button>
             <Link to='/'>Home</Link>
           </Button>
-          <Button color='white'>
+          <Button>
             <Link to='menu'>Menu</Link>
           </Button>
-          <Button color='white'>
+          <Button>
             <Link to='checkout'>Checkout</Link>
           </Button>
-          <Button color='white'>
-            <Link to='account'>Login</Link>
+          <Button>
+            <Link to='account'>Account</Link>
           </Button>
         </Toolbar>
       </AppBar>

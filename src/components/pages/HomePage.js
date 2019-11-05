@@ -7,9 +7,7 @@ import Header from '../layouts/index/Header';
 import About from '../layouts/index/About';
 import Details from '../layouts/index/Details';
 import GoogleMaps from '../layouts/index/GoogleMaps';
-import Footer from '../layouts/Footer';
 
-import CssBaseline from '@material-ui/core/CssBaseline';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Container from '@material-ui/core/Container';
 
@@ -22,15 +20,8 @@ const HomePage = ({ info: { infos, loading }, getInfos }) => {
   if (loading || infos === null) {
     return <CircularProgress />;
   } else {
-    console.log(infos);
     const {
-      outlet: {
-        name,
-        alias,
-        short_description,
-        long_description,
-        footer_description
-      },
+      outlet: { name, alias, short_description, long_description },
       meta_title,
       phone1,
       address1,
@@ -43,7 +34,6 @@ const HomePage = ({ info: { infos, loading }, getInfos }) => {
     } = infos.value;
     return (
       <Fragment>
-        <CssBaseline />
         <Header alias={alias} title={meta_title} />
         <About
           header={name}
@@ -62,7 +52,6 @@ const HomePage = ({ info: { infos, loading }, getInfos }) => {
           />
         </Container>
         <GoogleMaps longitude={Number(longitude)} latitude={Number(latitude)} />
-        <Footer name={name} footerDesc={footer_description} />
       </Fragment>
     );
   }

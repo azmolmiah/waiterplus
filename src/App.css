@@ -12,5 +12,5 @@ a {
   min-width: auto !important;
 }
 .MuiBottomNavigationAction-root.Mui-selected {
-  color: white;
+  color: #fff !important;
 }

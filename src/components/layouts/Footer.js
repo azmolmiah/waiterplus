@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -8,12 +7,17 @@ import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import RefreshIcon from '@material-ui/icons/Refresh';
 
-const Footer = ({ name, footerDesc }) => {
+const Footer = () => {
   const styles = {
-    padding: '4% 0',
+    paddingTop: '4%',
     backgroundColor: '#4a1448',
     color: 'white'
   };
+
+  const { name, footer_description } = JSON.parse(
+    localStorage.getItem('infos')
+  ).value.outlet;
+
   return (
     <div style={styles}>
       <Container>
@@ -21,7 +25,7 @@ const Footer = ({ name, footerDesc }) => {
           <Grid item xs={12} md={6}>
             <Box pr={2}>
               <h2>{name}</h2>
-              <p>{footerDesc}</p>
+              <p>{footer_description}</p>
             </Box>
           </Grid>
           <Grid item xs={6} md={3}>
@@ -75,7 +79,8 @@ const Footer = ({ name, footerDesc }) => {
           </Box>
         </Grid>
         <Divider />
-
+      </Container>
+      <div style={{ backgroundColor: 'rgba(0,0,0,.2)' }}>
         <Grid container justify='center'>
           <Box pt={1}>
             &copy; {new Date().getFullYear()} Powered by: WaiterPlus 2.6.94
@@ -86,7 +91,7 @@ const Footer = ({ name, footerDesc }) => {
             <RefreshIcon style={{ fontSize: 13 }} /> Reset App
           </Box>
         </Grid>
-      </Container>
+      </div>
     </div>
   );
 };
