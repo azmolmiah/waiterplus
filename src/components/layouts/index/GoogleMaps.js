@@ -15,7 +15,7 @@ const GoogleMaps = ({ latitude, longitude }) => {
     <Fragment>
       <div style={{ height: '50vh', width: '100%' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyCGtdrDMCUB9W9yXVoai4pSS1wmrCHeegg' }}
+          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_SECRET }}
           defaultCenter={{ lat: latitude, lng: longitude }}
           defaultZoom={16}
           yesIWantToUseGoogleMapApiInternals
