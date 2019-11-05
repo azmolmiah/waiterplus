@@ -1,11 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,9 +30,20 @@ export default function ButtonAppBar() {
       <AppBar position='fixed' className={classes.bg}>
         <Toolbar>
           <Typography edge='start' variant='h6' className={classes.title}>
-            News
+            <Link to='/'>News</Link>
           </Typography>
-          <Button color='inherit'>Login</Button>
+          <Button>
+            <Link to='/'>Home</Link>
+          </Button>
+          <Button color='white'>
+            <Link to='menu'>Menu</Link>
+          </Button>
+          <Button color='white'>
+            <Link to='checkout'>Checkout</Link>
+          </Button>
+          <Button color='white'>
+            <Link to='account'>Login</Link>
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

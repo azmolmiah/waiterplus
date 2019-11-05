@@ -1,6 +1,16 @@
+/* Global */
 body {
   margin: 0;
 }
+a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Material UI Custom */
 .MuiBottomNavigationAction-root {
   min-width: auto !important;
+}
+.MuiBottomNavigationAction-root.Mui-selected {
+  color: white;
 }

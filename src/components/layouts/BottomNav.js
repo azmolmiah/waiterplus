@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -30,6 +32,26 @@ export default function LabelBottomNavigation() {
     setValue(newValue);
   };
 
+  const homeLink = React.forwardRef((props, ref) => (
+    <RouterLink innerRef={ref} to='/' {...props} />
+  ));
+
+  const bookingsLink = React.forwardRef((props, ref) => (
+    <RouterLink innerRef={ref} to='/bookings' {...props} />
+  ));
+
+  const menuLink = React.forwardRef((props, ref) => (
+    <RouterLink innerRef={ref} to='/menu' {...props} />
+  ));
+
+  const checkoutLink = React.forwardRef((props, ref) => (
+    <RouterLink innerRef={ref} to='/checkout' {...props} />
+  ));
+
+  const loginLink = React.forwardRef((props, ref) => (
+    <RouterLink innerRef={ref} to='/login' {...props} />
+  ));
+
   return (
     <BottomNavigation
       value={value}
@@ -40,26 +62,35 @@ export default function LabelBottomNavigation() {
         label='Home'
         value='home'
         icon={<Home className={classes.icon} />}
+        component={homeLink}
       />
+
       <BottomNavigationAction
         label='Bookings'
         value='bookings'
         icon={<Event className={classes.icon} />}
+        component={bookingsLink}
       />
+
       <BottomNavigationAction
         label='Menu'
         value='menu'
         icon={<MenuBook className={classes.icon} />}
+        component={menuLink}
       />
+
       <BottomNavigationAction
-        label='Cart'
-        value='cart'
+        label='Checkout'
+        value='checkout'
         icon={<LocalMall className={classes.icon} />}
+        component={checkoutLink}
       />
+
       <BottomNavigationAction
-        label='Account'
-        value='account'
+        label='Login'
+        value='login'
         icon={<AccountCircle className={classes.icon} />}
+        component={loginLink}
       />
     </BottomNavigation>
   );
