@@ -7,28 +7,24 @@ import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import RefreshIcon from '@material-ui/icons/Refresh';
 
-const Footer = () => {
+const Footer = ({ name, footer_description }) => {
   const styles = {
     paddingTop: '4%',
     backgroundColor: '#4a1448',
     color: 'white'
   };
 
-  const { name, footer_description } = JSON.parse(
-    localStorage.getItem('infos')
-  ).value.outlet;
-
   return (
     <div style={styles}>
       <Container>
         <Grid container>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={8}>
             <Box pr={2}>
               <h2>{name}</h2>
               <p>{footer_description}</p>
             </Box>
           </Grid>
-          <Grid item xs={6} md={3}>
+          <Grid item xs={6} md={2}>
             <h2>Customer Service</h2>
             <List>
               <li>Login</li>
@@ -36,7 +32,7 @@ const Footer = () => {
               <li>Help Chat</li>
             </List>
           </Grid>
-          <Grid item xs={6} md={3}>
+          <Grid item xs={6} md={2}>
             <h2>Information</h2>
             <List>
               <li>Terms of Use</li>

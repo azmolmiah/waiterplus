@@ -7,11 +7,14 @@ import Header from '../layouts/index/Header';
 import About from '../layouts/index/About';
 import Details from '../layouts/index/Details';
 import GoogleMaps from '../layouts/index/GoogleMaps';
+import TopNav from '../layouts/TopNav';
+import BottomNav from '../layouts/BottomNav';
+import Footer from '../layouts/Footer';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Container from '@material-ui/core/Container';
 
-const HomePage = ({ info: { infos, loading }, getInfos }) => {
+const HomePage = ({ info: { infos, loading }, getInfos, isMobile }) => {
   useEffect(() => {
     getInfos();
     //eslint-disable-next-line
@@ -20,8 +23,15 @@ const HomePage = ({ info: { infos, loading }, getInfos }) => {
   if (loading || infos === null) {
     return <CircularProgress />;
   } else {
+    console.log(infos);
     const {
-      outlet: { name, alias, short_description, long_description },
+      outlet: {
+        name,
+        alias,
+        short_description,
+        long_description,
+        footer_description
+      },
       meta_title,
       phone1,
       address1,
@@ -52,6 +62,8 @@ const HomePage = ({ info: { infos, loading }, getInfos }) => {
           />
         </Container>
         <GoogleMaps longitude={Number(longitude)} latitude={Number(latitude)} />
+        <Footer name={name} footer_description={footer_description} />
+        {isMobile ? <BottomNav /> : <TopNav name={name} />}
       </Fragment>
     );
   }

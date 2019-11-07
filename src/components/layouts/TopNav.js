@@ -6,6 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,30 +25,34 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ButtonAppBar() {
+const TopNav = ({ name }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position='fixed' className={classes.bg}>
-        <Toolbar className={classes.link}>
-          <Typography edge='start' variant='h6' className={classes.title}>
-            <Link to='/'>News</Link>
-          </Typography>
-          <Button>
-            <Link to='/'>Home</Link>
-          </Button>
-          <Button>
-            <Link to='menu'>Menu</Link>
-          </Button>
-          <Button>
-            <Link to='checkout'>Checkout</Link>
-          </Button>
-          <Button>
-            <Link to='account'>Account</Link>
-          </Button>
-        </Toolbar>
+        <Container>
+          <Toolbar className={classes.link}>
+            <Typography edge='start' variant='h6' className={classes.title}>
+              <Link to='/'>{name}</Link>
+            </Typography>
+            <Button>
+              <Link to='/'>Home</Link>
+            </Button>
+            <Button>
+              <Link to='menu'>Menu</Link>
+            </Button>
+            <Button>
+              <Link to='checkout'>Checkout</Link>
+            </Button>
+            <Button>
+              <Link to='account'>Account</Link>
+            </Button>
+          </Toolbar>
+        </Container>
       </AppBar>
     </div>
   );
-}
+};
+
+export default TopNav;

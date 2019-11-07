@@ -23,14 +23,16 @@ const App = ({ isMobile }) => {
       <div className='App'>
         <Provider store={store}>
           <Switch>
-            <Route exact path='/' component={HomePage} />
+            <Route
+              exact
+              path='/'
+              render={props => <HomePage {...props} isMobile={isMobile} />}
+            />
             <Route exact path='/bookings' component={BookingsPage} />
             <Route exact path='/menu' component={MenuPage} />
             <Route exact path='/checkout' component={CheckoutPage} />
             <Route exact path='/account' component={AccountPage} />
           </Switch>
-          <Footer />
-          {isMobile ? <BottomNav /> : <TopNav />}
         </Provider>
       </div>
     </Router>
