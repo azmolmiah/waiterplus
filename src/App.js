@@ -10,10 +10,6 @@ import BookingsPage from './components/pages/BookingsPage';
 import CheckoutPage from './components/pages/CheckoutPage';
 import AccountPage from './components/pages/AccountPage';
 import MenuPage from './components/pages/MenuPage';
-import TopNav from './components/layouts/TopNav';
-import BottomNav from './components/layouts/BottomNav';
-import Footer from './components/layouts/Footer';
-
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 const App = ({ isMobile }) => {
@@ -31,7 +27,11 @@ const App = ({ isMobile }) => {
             <Route exact path='/bookings' component={BookingsPage} />
             <Route exact path='/menu' component={MenuPage} />
             <Route exact path='/checkout' component={CheckoutPage} />
-            <Route exact path='/account' component={AccountPage} />
+            <Route
+              exact
+              path='/account'
+              render={props => <AccountPage {...props} isMobile={isMobile} />}
+            />
           </Switch>
         </Provider>
       </div>

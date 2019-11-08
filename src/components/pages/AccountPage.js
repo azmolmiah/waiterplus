@@ -1,22 +1,46 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useEffect, Fragment } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getInfos } from '../../actions/infoActions';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    background:
-      'url("https://${alias}.com/webapp-php-live/assets/img/login_bg-1.jpg") no-repeat center center',
-    backgroundSize: 'cover',
-    padding: '10%'
+import BottomNav from '../layouts/BottomNav';
+import TopNav from '../layouts/TopNav';
+import Footer from '../layouts/Footer';
+import LoginForm from '../layouts/account/LoginForm';
+
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+const AccountPage = ({ info: { infos, loading }, getInfos, isMobile }) => {
+  useEffect(() => {
+    getInfos();
+    //eslint-disable-next-line
+  }, []);
+
+  if (loading || infos === null) {
+    return <CircularProgress />;
+  } else {
+    const {
+      outlet: { name, alias, footer_description }
+    } = infos.value;
+    return (
+      <Fragment>
+        <LoginForm alias={alias} />
+        <Footer name={name} footer_description={footer_description} />
+        {isMobile ? <BottomNav /> : <TopNav name={name} />}
+      </Fragment>
+    );
   }
-}));
-
-const AccountPage = () => {
-  const classes = useStyles();
-  return (
-    <div className={classes.root}>
-      <h1>Account Page</h1>
-    </div>
-  );
 };
 
-export default AccountPage;
+AccountPage.propTypes = {
+  info: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  info: state.info
+});
+
+export default connect(
+  mapStateToProps,
+  { getInfos }
+)(AccountPage);
