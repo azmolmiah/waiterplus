@@ -40,13 +40,16 @@ const TopNav = ({ name }) => {
               <Link to='/'>Home</Link>
             </Button>
             <Button>
-              <Link to='menu'>Menu</Link>
+              <Link to='/bookings'>Bookings</Link>
             </Button>
             <Button>
-              <Link to='checkout'>Checkout</Link>
+              <Link to='/menu'>Menu</Link>
             </Button>
             <Button>
-              <Link to='account'>Account</Link>
+              <Link to='/checkout'>Checkout</Link>
+            </Button>
+            <Button>
+              <Link to='/account'>Account</Link>
             </Button>
           </Toolbar>
         </Container>

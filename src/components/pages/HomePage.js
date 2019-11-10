@@ -23,7 +23,6 @@ const HomePage = ({ info: { infos, loading }, getInfos, isMobile }) => {
   if (loading || infos === null) {
     return <CircularProgress />;
   } else {
-    console.log(infos);
     const {
       outlet: {
         name,

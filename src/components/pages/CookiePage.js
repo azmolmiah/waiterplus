@@ -4,14 +4,14 @@ import TopNav from '../layouts/TopNav';
 import BottomNav from '../layouts/BottomNav';
 import Footer from '../layouts/Footer';
 
-const BookingsPage = ({ isMobile }) => {
+const CookiePage = ({ isMobile }) => {
   return (
     <div>
-      <h1>Bookings Page</h1>
+      <h1>CookiePage</h1>
       <Footer />
       {isMobile ? <BottomNav /> : <TopNav />}
     </div>
   );
 };
 
-export default BookingsPage;
+export default CookiePage;

@@ -52,7 +52,11 @@ const LoginForm = ({ alias }) => {
                   />
                 </Box>
 
-                <Button variant='contained' className={classes.button}>
+                <Button
+                  variant='contained'
+                  color='primary'
+                  className={classes.button}
+                >
                   Continue
                 </Button>
               </CardContent>

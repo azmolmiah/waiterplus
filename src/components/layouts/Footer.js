@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -27,9 +28,17 @@ const Footer = ({ name, footer_description }) => {
           <Grid item xs={6} md={2}>
             <h2>Customer Service</h2>
             <List>
-              <li>Login</li>
-              <li>Sign Up</li>
-              <li>Help Chat</li>
+              <li>
+                <Link to='/account'>Login</Link>
+              </li>
+              <li>
+                <Link to='/account'>Sign Up</Link>
+              </li>
+              <li>
+                <a href='https://tawk.to/chat/5bd5d8ef65224c2640512780/default'>
+                  Help Chat
+                </a>
+              </li>
             </List>
           </Grid>
           <Grid item xs={6} md={2}>
@@ -38,8 +47,12 @@ const Footer = ({ name, footer_description }) => {
               <li>Terms of Use</li>
               <li>Privacy Policy</li>
               <li>Cookie Policy</li>
-              <li>Food Hygiene Rating</li>
-              <li>Allergy and Intolerance</li>
+              <li>
+                <a href='https://ratings.food.gov.uk/'>Food Hygiene Rating</a>
+              </li>
+              <li>
+                <a href='https://www.allergyuk.org/'>Allergy and Intolerance</a>
+              </li>
             </List>
           </Grid>
         </Grid>
