@@ -12,7 +12,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const LoginForm = ({ alias }) => {
   const useStyles = makeStyles(() => ({
     root: {
-      background: `url('https://${alias}.com/webapp-php-live/assets/img/login_bg-1.jpg') no-repeat center center`,
+      background: `url('https://${alias}.com/webapp-php-live/assets/img/login_bg-1.jpg') no-repeat npm i --save material-auto-rotating-carousel
+      `,
       backgroundSize: 'cover',
       padding: '10%'
     },

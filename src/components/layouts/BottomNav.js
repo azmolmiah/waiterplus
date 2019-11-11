@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function LabelBottomNavigation() {
+const LabelBottomNavigation = () => {
   const classes = useStyles();
   const [value, setValue] = useState('recents');
 
@@ -94,4 +94,6 @@ export default function LabelBottomNavigation() {
       />
     </BottomNavigation>
   );
-}
+};
+
+export default LabelBottomNavigation;

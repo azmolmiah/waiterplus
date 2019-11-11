@@ -7,16 +7,21 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import RefreshIcon from '@material-ui/icons/Refresh';
+import { makeStyles } from '@material-ui/core/styles';
 
-const Footer = ({ name, footer_description }) => {
-  const styles = {
+const useStyles = makeStyles(() => ({
+  root: {
     paddingTop: '4%',
     backgroundColor: '#4a1448',
     color: 'white'
-  };
+  }
+}));
+
+const Footer = ({ name, footer_description }) => {
+  const classes = useStyles();
 
   return (
-    <div style={styles}>
+    <div className={classes.root}>
       <Container>
         <Grid container>
           <Grid item xs={12} md={8}>
