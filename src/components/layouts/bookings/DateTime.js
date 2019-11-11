@@ -12,6 +12,9 @@ import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
+  root: {
+    padding: '10%'
+  },
   picker: {
     width: '100%',
     paddingInlineEnd: '1.5rem'
@@ -33,7 +36,8 @@ export default function MaterialUIPickers() {
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Container>
+      <Container className={classes.root}>
+        <h2>Book your table here</h2>
         <Grid container justify='center'>
           <Grid item md={6} sm={12}>
             <KeyboardDatePicker
