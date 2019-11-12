@@ -1,27 +1,32 @@
-import React, { useEffect, Fragment } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { getInfos } from '../../actions/infoActions';
+import React, { useEffect, Fragment } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { getDetails } from "../../actions/detailsActions";
 
-import BottomNav from '../layouts/BottomNav';
-import TopNav from '../layouts/TopNav';
-import Footer from '../layouts/Footer';
-import LoginForm from '../layouts/account/LoginForm';
+import BottomNav from "../layouts/BottomNav";
+import TopNav from "../layouts/TopNav";
+import Footer from "../layouts/Footer";
+import LoginForm from "../layouts/account/LoginForm";
 
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-const AccountPage = ({ info: { infos, loading }, getInfos, isMobile }) => {
+const AccountPage = ({
+  detail: { details, loading },
+  getDetails,
+  isMobile
+}) => {
   useEffect(() => {
-    getInfos();
+    getDetails();
     //eslint-disable-next-line
   }, []);
 
-  if (loading || infos === null) {
+  if (loading || details === null) {
     return <CircularProgress />;
   } else {
     const {
       outlet: { name, alias, footer_description }
-    } = infos.value;
+    } = details.value;
+
     return (
       <Fragment>
         <LoginForm alias={alias} />
@@ -33,14 +38,11 @@ const AccountPage = ({ info: { infos, loading }, getInfos, isMobile }) => {
 };
 
 AccountPage.propTypes = {
-  info: PropTypes.object.isRequired
+  detail: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  info: state.info
+  detail: state.detail
 });
 
-export default connect(
-  mapStateToProps,
-  { getInfos }
-)(AccountPage);
+export default connect(mapStateToProps, { getDetails })(AccountPage);

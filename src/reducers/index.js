@@ -1,6 +1,8 @@
-import { combineReducers } from 'redux';
-import infoReducer from './infoReducer';
+import { combineReducers } from "redux";
+import detailsReducer from "./detailsReducer";
+import servicesReducer from "./servicesReducer";
 
 export default combineReducers({
-  info: infoReducer
+  details: detailsReducer,
+  services: servicesReducer
 });

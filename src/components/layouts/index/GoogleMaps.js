@@ -1,9 +1,29 @@
-import React, { useState } from 'react';
-import GoogleMapReact from 'google-map-react';
+import React, { useState } from "react";
+import GoogleMapReact from "google-map-react";
 
-import Grid from '@material-ui/core/Grid';
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(() => ({
+  root: {
+    height: "50vh",
+    width: "100%"
+  },
+  bg: {
+    background: 'url("/google-map.png") no-repeat center center',
+    backgroundSize: "cover",
+    padding: "10%",
+    height: "100%"
+  },
+  click: {
+    cursor: "pointer",
+    textAlign: "center"
+  }
+}));
 
 const GoogleMaps = ({ latitude, longitude }) => {
+  const classes = useStyles();
+
   const [showMap, setShowMap] = useState(false);
 
   const renderMarkers = (map, maps) => {
@@ -15,29 +35,17 @@ const GoogleMaps = ({ latitude, longitude }) => {
   };
 
   return (
-    <div
-      style={{
-        height: '50vh',
-        width: '100%'
-      }}
-    >
+    <div className={classes.root}>
       {!showMap ? (
-        <div
-          style={{
-            background: 'url("/google-map.png") no-repeat center center',
-            backgroundSize: 'cover',
-            padding: '10%',
-            height: '100%'
-          }}
-        >
-          <Grid container justify='center'>
+        <div className={classes.bg}>
+          <Grid container justify="center">
             <h1
-              style={{ cursor: 'pointer', textAlign: 'center' }}
+              className={classes.click}
               onClick={() => {
                 setShowMap(true);
               }}
             >
-              Click to View
+              Click here to view
             </h1>
           </Grid>
         </div>

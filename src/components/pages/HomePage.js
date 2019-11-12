@@ -1,26 +1,34 @@
-import React, { useEffect, Fragment } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { getInfos } from '../../actions/infoActions';
+import React, { useEffect, Fragment } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { getDetails } from "../../actions/detailsActions";
+import { getServices } from "../../actions/servicesActions";
 
-import Header from '../layouts/index/Header';
-import About from '../layouts/index/About';
-import Details from '../layouts/index/Details';
-import GoogleMaps from '../layouts/index/GoogleMaps';
-import TopNav from '../layouts/TopNav';
-import BottomNav from '../layouts/BottomNav';
-import Footer from '../layouts/Footer';
+import Header from "../layouts/index/Header";
+import About from "../layouts/index/About";
+import Details from "../layouts/index/Details";
+import GoogleMaps from "../layouts/index/GoogleMaps";
+import TopNav from "../layouts/TopNav";
+import BottomNav from "../layouts/BottomNav";
+import Footer from "../layouts/Footer";
 
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Container from '@material-ui/core/Container';
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Container from "@material-ui/core/Container";
 
-const HomePage = ({ info: { infos, loading }, getInfos, isMobile }) => {
+const HomePage = ({
+  detail: { details, loading },
+  service: { services },
+  getDetails,
+  getServices,
+  isMobile
+}) => {
   useEffect(() => {
-    getInfos();
+    getDetails();
+    getServices();
     //eslint-disable-next-line
   }, []);
 
-  if (loading || infos === null) {
+  if (loading || details === null) {
     return <CircularProgress />;
   } else {
     const {
@@ -40,7 +48,8 @@ const HomePage = ({ info: { infos, loading }, getInfos, isMobile }) => {
       postcode,
       longitude,
       latitude
-    } = infos.value;
+    } = details.value;
+    console.log(details, services);
     return (
       <Fragment>
         <Header alias={alias} title={meta_title} />
@@ -69,14 +78,13 @@ const HomePage = ({ info: { infos, loading }, getInfos, isMobile }) => {
 };
 
 HomePage.propTypes = {
-  info: PropTypes.object.isRequired
+  detail: PropTypes.object.isRequired,
+  service: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  info: state.info
+  detail: state.details,
+  service: state.services
 });
 
-export default connect(
-  mapStateToProps,
-  { getInfos }
-)(HomePage);
+export default connect(mapStateToProps, { getDetails, getServices })(HomePage);

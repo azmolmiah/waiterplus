@@ -1,19 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import Box from '@material-ui/core/Box';
-import RefreshIcon from '@material-ui/icons/Refresh';
-import { makeStyles } from '@material-ui/core/styles';
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
+import Box from "@material-ui/core/Box";
+import RefreshIcon from "@material-ui/icons/Refresh";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
   root: {
-    paddingTop: '4%',
-    backgroundColor: '#4a1448',
-    color: 'white'
+    paddingTop: "4%",
+    backgroundColor: "#4a1448",
+    color: "white"
   }
 }));
 
@@ -34,13 +34,13 @@ const Footer = ({ name, footer_description }) => {
             <h2>Customer Service</h2>
             <List>
               <li>
-                <Link to='/account'>Login</Link>
+                <Link to="/account">Login</Link>
               </li>
               <li>
-                <Link to='/account'>Sign Up</Link>
+                <Link to="/account">Sign Up</Link>
               </li>
               <li>
-                <a href='https://tawk.to/chat/5bd5d8ef65224c2640512780/default'>
+                <a href="https://tawk.to/chat/5bd5d8ef65224c2640512780/default">
                   Help Chat
                 </a>
               </li>
@@ -49,58 +49,65 @@ const Footer = ({ name, footer_description }) => {
           <Grid item xs={6} md={2}>
             <h2>Information</h2>
             <List>
-              <li>Terms of Use</li>
-              <li>Privacy Policy</li>
-              <li>Cookie Policy</li>
               <li>
-                <a href='https://ratings.food.gov.uk/'>Food Hygiene Rating</a>
+                <Link to="/termsofuse">Terms of Use</Link>
+              </li>
+
+              <li>
+                <Link to="/privacy">Privacy Policy</Link>
               </li>
               <li>
-                <a href='https://www.allergyuk.org/'>Allergy and Intolerance</a>
+                <Link to="/cookies">Cookie Policy</Link>
+              </li>
+              <li>
+                <a href="https://ratings.food.gov.uk/">Food Hygiene Rating</a>
+              </li>
+              <li>
+                <a href="https://www.allergyuk.org/">Allergy and Intolerance</a>
               </li>
             </List>
           </Grid>
         </Grid>
         <Divider />
-        <Grid container justify='center'>
+        <Grid container justify="center">
           <Box m={1}>
             <img
-              style={{ height: '30px' }}
-              src='https://waiterplus.com/webappcdn/2.6.94/assets/img/payment-wallet.png'
-              alt='wallet'
+              style={{ height: "30px" }}
+              src="https://waiterplus.com/webappcdn/2.6.94/assets/img/payment-wallet.png"
+              alt="wallet"
             />
           </Box>
           <Box m={1}>
             <img
-              style={{ height: '30px' }}
-              src='https://waiterplus.com/webappcdn/2.6.94/assets/img/payment-mastercard.png'
-              alt='mastercard'
+              style={{ height: "30px" }}
+              src="https://waiterplus.com/webappcdn/2.6.94/assets/img/payment-mastercard.png"
+              alt="mastercard"
             />
           </Box>
           <Box m={1}>
             <img
-              style={{ height: '30px' }}
-              src='https://waiterplus.com/webappcdn/2.6.94/assets/img/payment-visa.png'
-              alt='visa'
+              style={{ height: "30px" }}
+              src="https://waiterplus.com/webappcdn/2.6.94/assets/img/payment-visa.png"
+              alt="visa"
             />
           </Box>
           <Box m={1}>
             <img
-              style={{ height: '30px' }}
-              src='https://waiterplus.com/webappcdn/2.6.94/assets/img/payment-paypal.png'
-              alt='paypal'
+              style={{ height: "30px" }}
+              src="https://waiterplus.com/webappcdn/2.6.94/assets/img/payment-paypal.png"
+              alt="paypal"
             />
           </Box>
         </Grid>
         <Divider />
       </Container>
-      <div style={{ backgroundColor: 'rgba(0,0,0,.2)' }}>
-        <Grid container justify='center'>
+      <div style={{ backgroundColor: "rgba(0,0,0,.2)" }}>
+        <Grid container justify="center">
           <Box pt={1}>
             &copy; {new Date().getFullYear()} Powered by: WaiterPlus 2.6.94
           </Box>
         </Grid>
-        <Grid container justify='center'>
+        <Grid container justify="center">
           <Box mb={8}>
             <RefreshIcon style={{ fontSize: 13 }} /> Reset App
           </Box>

@@ -1,16 +1,16 @@
-import { GET_INFOS, SET_LOADING, INFOS_ERROR } from '../actions/types';
+import { GET_DETAILS, SET_LOADING, DETAILS_ERROR } from "../actions/types";
 
 const initialState = {
-  infos: null,
+  details: null,
   loading: false,
   error: null
 };
 export default (state = initialState, action) => {
   switch (action.type) {
-    case GET_INFOS:
+    case GET_DETAILS:
       return {
         ...state,
-        infos: action.payload,
+        details: action.payload,
         loading: false
       };
     case SET_LOADING:
@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: true
       };
-    case INFOS_ERROR:
+    case DETAILS_ERROR:
       console.error(action.payload);
       return {
         ...state,

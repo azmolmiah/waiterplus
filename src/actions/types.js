@@ -1,3 +1,5 @@
-export const GET_INFOS = 'GET_INFOS';
-export const SET_LOADING = 'SET_LOADING';
-export const INFOS_ERROR = 'INFOS_ERRO';
+export const GET_DETAILS = "GET_DETAILS";
+export const DETAILS_ERROR = "DETAILS_ERROR";
+export const GET_SERVICES = "GET_SERVICES";
+export const SERVICES_ERROR = "SERVICES_ERROR";
+export const SET_LOADING = "SET_LOADING";

@@ -1,10 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import Grid from '@material-ui/core/Grid';
-import OpeningTimes from './details/OpeningTimes';
-import Phone from './details/Phone';
-import Address from './details/Address';
-import DeliveryInfo from './details/DeliveryInfo';
+import Grid from "@material-ui/core/Grid";
+import OpeningTimes from "./details/OpeningTimes";
+import Phone from "./details/Phone";
+import Address from "./details/Address";
+import DeliveryInfo from "./details/DeliveryInfo";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(() => ({
+  root: {
+    padding: "4% 0"
+  }
+}));
 
 const Details = ({
   phone,
@@ -14,8 +21,9 @@ const Details = ({
   building_number,
   postcode
 }) => {
+  const classes = useStyles();
   return (
-    <div style={{ padding: '4% 0' }}>
+    <div className={classes.root}>
       <Grid container>
         <Grid item xs={12} md={4}>
           <OpeningTimes />
