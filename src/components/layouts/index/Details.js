@@ -19,14 +19,15 @@ const Details = ({
   address2,
   city,
   building_number,
-  postcode
+  postcode,
+  formated_opening_times
 }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <Grid container>
         <Grid item xs={12} md={4}>
-          <OpeningTimes />
+          <OpeningTimes formated_opening_times={formated_opening_times} />
         </Grid>
         <Grid item xs={12} md={4}>
           <Phone phone={phone} />

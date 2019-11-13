@@ -39,8 +39,8 @@ export const getDetails = () => async dispatch => {
     }
   } catch (err) {
     dispatch({
-      types: DETAILS_ERROR,
-      payload: err.response.statusText
+      type: DETAILS_ERROR,
+      payload: err.response
     });
   }
 };

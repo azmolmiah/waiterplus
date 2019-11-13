@@ -81,7 +81,7 @@ export default function MaterialUIPickers() {
             <FormControl className={classes.formControl}>
               <InputLabel id="demo-simple-select-label">Seats</InputLabel>
               <Select
-                labelId="demo-simple-select-label"
+                labelid="demo-simple-select-label"
                 id="demo-simple-select"
                 value={age}
                 onChange={handleChange}
