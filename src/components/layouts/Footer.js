@@ -108,7 +108,12 @@ const Footer = ({ name, footer_description }) => {
           </Box>
         </Grid>
         <Grid container justify="center">
-          <Box mb={8}>
+          <Box
+            mb={4}
+            mt={2}
+            style={{ cursor: "pointer" }}
+            onClick={() => window.location.reload(false)}
+          >
             <RefreshIcon style={{ fontSize: 13 }} /> Reset App
           </Box>
         </Grid>
