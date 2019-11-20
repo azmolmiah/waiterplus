@@ -6,6 +6,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import ScheduleIcon from "@material-ui/icons/Schedule";
+import Box from "@material-ui/core/Box";
 
 const OpeningTimes = ({ formated_opening_times }) => {
   console.log(formated_opening_times);
@@ -27,9 +28,18 @@ const OpeningTimes = ({ formated_opening_times }) => {
                     <TableCell style={{ paddingLeft: "0" }}>
                       {row.day}
                     </TableCell>
-                    <TableCell>
-                      {row.data[0].open_time} - {row.data[0].close_time}
-                    </TableCell>
+                    {row.data.length === 2 ? (
+                      <TableCell>
+                        <Box>{`${row.data[0].open_time} - ${row.data[0].close_time}`}</Box>
+                        <Box>{`${row.data[1].open_time} - ${row.data[1].close_time}`}</Box>
+                      </TableCell>
+                    ) : row.data.length === 1 ? (
+                      <TableCell>
+                        {row.data[0].open_time} - {row.data[0].close_time}
+                      </TableCell>
+                    ) : (
+                      <TableCell>{row.data}</TableCell>
+                    )}
                   </TableRow>
                 );
               })}
