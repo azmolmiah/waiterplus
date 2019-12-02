@@ -1,16 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import TopNav from '../layouts/TopNav';
-import BottomNav from '../layouts/BottomNav';
-import Footer from '../layouts/Footer';
+import Layout from "../layouts/Layout";
+import Footer from "../layouts/Footer";
 
-const CookiePage = ({ isMobile }) => {
+const CookiePage = () => {
   return (
-    <div>
+    <Layout>
       <h1>CookiePage</h1>
       <Footer />
-      {isMobile ? <BottomNav /> : <TopNav />}
-    </div>
+    </Layout>
   );
 };
 

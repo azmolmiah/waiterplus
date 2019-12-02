@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getServices } from "../../actions/servicesActions";
@@ -8,9 +8,9 @@ import Header from "../layouts/index/Header";
 import About from "../layouts/index/About";
 import Details from "../layouts/index/Details";
 import GoogleMaps from "../layouts/index/GoogleMaps";
-import TopNav from "../layouts/TopNav";
-import BottomNav from "../layouts/BottomNav";
+
 import Footer from "../layouts/Footer";
+import Layout from "../layouts/Layout";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Container from "@material-ui/core/Container";
@@ -57,7 +57,7 @@ const HomePage = ({
     } = details.value;
 
     return (
-      <Fragment>
+      <Layout>
         <Header alias={alias} title={meta_title} />
         <About
           header={name}
@@ -78,8 +78,7 @@ const HomePage = ({
         </Container>
         <GoogleMaps longitude={Number(longitude)} latitude={Number(latitude)} />
         <Footer name={name} footer_description={footer_description} />
-        {isMobile ? <BottomNav /> : <TopNav name={name} />}
-      </Fragment>
+      </Layout>
     );
   }
 };

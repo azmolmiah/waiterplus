@@ -1,10 +1,9 @@
-import React, { useEffect, Fragment } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getDetails } from "../../actions/detailsActions";
 
-import BottomNav from "../layouts/BottomNav";
-import TopNav from "../layouts/TopNav";
+import Layout from "../layouts/Layout";
 import Footer from "../layouts/Footer";
 import LoginForm from "../layouts/account/LoginForm";
 
@@ -28,11 +27,10 @@ const AccountPage = ({
     } = details.value;
 
     return (
-      <Fragment>
+      <Layout>
         <LoginForm alias={alias} />
         <Footer name={name} footer_description={footer_description} />
-        {isMobile ? <BottomNav /> : <TopNav name={name} />}
-      </Fragment>
+      </Layout>
     );
   }
 };

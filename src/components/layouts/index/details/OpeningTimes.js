@@ -9,7 +9,6 @@ import ScheduleIcon from "@material-ui/icons/Schedule";
 import Box from "@material-ui/core/Box";
 
 const OpeningTimes = ({ formated_opening_times }) => {
-  console.log(formated_opening_times);
   return (
     <div>
       <Grid container>

@@ -1,17 +1,15 @@
-import React, { Fragment } from 'react';
+import React from "react";
 
-import TopNav from '../layouts/TopNav';
-import BottomNav from '../layouts/BottomNav';
-import Footer from '../layouts/Footer';
-import DateTime from '../layouts/bookings/DateTime';
+import Footer from "../layouts/Footer";
+import Layout from "../layouts/Layout";
+import DateTime from "../layouts/bookings/DateTime";
 
-const BookingsPage = ({ isMobile }) => {
+const BookingsPage = () => {
   return (
-    <Fragment>
+    <Layout>
       <DateTime />
       <Footer />
-      {isMobile ? <BottomNav /> : <TopNav />}
-    </Fragment>
+    </Layout>
   );
 };
 
