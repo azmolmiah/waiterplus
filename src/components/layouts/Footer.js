@@ -60,7 +60,7 @@ const Footer = ({ name, footer_description }) => {
                 <Link to="/cookies">Cookie Policy</Link>
               </li>
               <li>
-                <a href="https://ratings.food.gov.uk/">Food Standard Rating</a>
+                <Link to="/foodrating">Food Standard Rating</Link>
               </li>
               <li>
                 <a href="https://www.allergyuk.org/">Allergy and Intolerance</a>

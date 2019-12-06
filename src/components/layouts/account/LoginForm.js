@@ -1,28 +1,28 @@
-import React from 'react';
+import React from "react";
 
-import Container from '@material-ui/core/Container';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
+import Container from "@material-ui/core/Container";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
 
 const LoginForm = ({ alias }) => {
   const useStyles = makeStyles(() => ({
     root: {
-      background: `url('https://${alias}.com/webapp-php-live/assets/img/login_bg-1.jpg') no-repeat npm i --save material-auto-rotating-carousel
+      background: `url('https://${alias}.com/webapp-php-live/assets/img/login_bg-1.jpg')
       `,
-      backgroundSize: 'cover',
-      padding: '10%'
+      backgroundSize: "cover",
+      padding: "10%"
     },
     textField: {
-      width: '100%'
+      width: "100%"
     },
     button: {
-      display: 'block',
-      width: '100%'
+      display: "block",
+      width: "100%"
     }
   }));
   const classes = useStyles();
@@ -31,9 +31,9 @@ const LoginForm = ({ alias }) => {
       <Container>
         <Grid
           container
-          direction='row'
-          justify='space-around'
-          alignItems='center'
+          direction="row"
+          justify="space-around"
+          alignItems="center"
         >
           <Grid item lg={6}>
             <Card>
@@ -44,18 +44,18 @@ const LoginForm = ({ alias }) => {
                 </Box>
                 <Box mb={2}>
                   <TextField
-                    id='standard-basic'
+                    id="standard-basic"
                     className={classes.textField}
-                    label='Email'
-                    margin='normal'
-                    name='email'
-                    autoComplete='email'
+                    label="Email"
+                    margin="normal"
+                    name="email"
+                    autoComplete="email"
                   />
                 </Box>
 
                 <Button
-                  variant='contained'
-                  color='primary'
+                  variant="contained"
+                  color="primary"
                   className={classes.button}
                 >
                   Continue

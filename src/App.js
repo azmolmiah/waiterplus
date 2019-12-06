@@ -11,6 +11,7 @@ import MenuPage from "./components/pages/MenuPage";
 import TermsPage from "./components/pages/TermsPage";
 import PrivacyPage from "./components/pages/PrivacyPage";
 import CookiePage from "./components/pages/CookiePage";
+import FoodRatingsPage from "./components/pages/FoodRatingsPage";
 
 import "./App.css";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -30,6 +31,7 @@ const App = () => {
             <Route exact path="/termsofuse" component={TermsPage} />
             <Route exact path="/privacy" component={PrivacyPage} />
             <Route exact path="/cookies" component={CookiePage} />
+            <Route exact path="/foodrating" component={FoodRatingsPage} />
           </Switch>
         </Provider>
       </div>

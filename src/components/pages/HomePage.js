@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getServices } from "../../actions/servicesActions";
 import { getDetails } from "../../actions/detailsActions";
-import { getFoodRatings } from "../../actions/foodRatingsActions";
 
 import Header from "../layouts/index/Header";
 import About from "../layouts/index/About";
@@ -18,24 +17,16 @@ import Container from "@material-ui/core/Container";
 const HomePage = ({
   service: { services },
   detail: { details, loading },
-  foodRating: { foodRatings },
   getDetails,
-  getServices,
-  getFoodRatings
+  getServices
 }) => {
   useEffect(() => {
     getServices();
     getDetails();
-    getFoodRatings();
     //eslint-disable-next-line
   }, []);
 
-  if (
-    loading ||
-    foodRatings === null ||
-    services === null ||
-    details === null
-  ) {
+  if (loading || services === null || details === null) {
     return (
       <div style={{ position: "absolute", top: "50%", left: "50%" }}>
         <CircularProgress />
@@ -62,8 +53,6 @@ const HomePage = ({
       longitude,
       latitude
     } = details.value;
-
-    console.log(foodRatings);
 
     return (
       <Layout footer_description={footer_description} name={name}>
@@ -93,18 +82,15 @@ const HomePage = ({
 
 HomePage.propTypes = {
   service: PropTypes.object.isRequired,
-  detail: PropTypes.object.isRequired,
-  foodRating: PropTypes.object.isRequired
+  detail: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   service: state.services,
-  detail: state.details,
-  foodRating: state.foodRatings
+  detail: state.details
 });
 
 export default connect(mapStateToProps, {
   getServices,
-  getDetails,
-  getFoodRatings
+  getDetails
 })(HomePage);

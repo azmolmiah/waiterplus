@@ -12,11 +12,12 @@ export const getFoodRatings = () => async dispatch => {
     // Check if local storage is empty or 3 hours old/older
     if (localStorage.getItem("foodRatings") === null || diff >= threeHours) {
       const res = await fetch(
-        "https://ratings.food.gov.uk/search/en-GB/yolo/NE20%209BD/json?x-api-version=2",
+        "https://cors-anywhere.herokuapp.com/https://api.ratings.food.gov.uk/Establishments?name=yolo&address=WC2H%209NP",
         {
           method: "GET",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "x-api-version": 2
           }
         }
       );
