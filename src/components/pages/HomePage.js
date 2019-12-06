@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getServices } from "../../actions/servicesActions";
 import { getDetails } from "../../actions/detailsActions";
+import { getFoodRatings } from "../../actions/foodRatingsActions";
 
 import Header from "../layouts/index/Header";
 import About from "../layouts/index/About";
 import Details from "../layouts/index/Details";
 import GoogleMaps from "../layouts/index/GoogleMaps";
 
-import Footer from "../layouts/Footer";
 import Layout from "../layouts/Layout";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -18,21 +18,28 @@ import Container from "@material-ui/core/Container";
 const HomePage = ({
   service: { services },
   detail: { details, loading },
+  foodRating: { foodRatings },
   getDetails,
   getServices,
-  isMobile
+  getFoodRatings
 }) => {
   useEffect(() => {
     getServices();
     getDetails();
+    getFoodRatings();
     //eslint-disable-next-line
   }, []);
 
-  if (loading || services === null || details === null) {
+  if (
+    loading ||
+    foodRatings === null ||
+    services === null ||
+    details === null
+  ) {
     return (
-      <Container>
+      <div style={{ position: "absolute", top: "50%", left: "50%" }}>
         <CircularProgress />
-      </Container>
+      </div>
     );
   } else {
     const { formated_opening_times } = services[0];
@@ -56,8 +63,10 @@ const HomePage = ({
       latitude
     } = details.value;
 
+    console.log(foodRatings);
+
     return (
-      <Layout>
+      <Layout footer_description={footer_description} name={name}>
         <Header alias={alias} title={meta_title} />
         <About
           header={name}
@@ -77,7 +86,6 @@ const HomePage = ({
           />
         </Container>
         <GoogleMaps longitude={Number(longitude)} latitude={Number(latitude)} />
-        <Footer name={name} footer_description={footer_description} />
       </Layout>
     );
   }
@@ -85,12 +93,18 @@ const HomePage = ({
 
 HomePage.propTypes = {
   service: PropTypes.object.isRequired,
-  detail: PropTypes.object.isRequired
+  detail: PropTypes.object.isRequired,
+  foodRating: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   service: state.services,
-  detail: state.details
+  detail: state.details,
+  foodRating: state.foodRatings
 });
 
-export default connect(mapStateToProps, { getServices, getDetails })(HomePage);
+export default connect(mapStateToProps, {
+  getServices,
+  getDetails,
+  getFoodRatings
+})(HomePage);

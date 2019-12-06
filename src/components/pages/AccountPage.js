@@ -4,16 +4,11 @@ import PropTypes from "prop-types";
 import { getDetails } from "../../actions/detailsActions";
 
 import Layout from "../layouts/Layout";
-import Footer from "../layouts/Footer";
 import LoginForm from "../layouts/account/LoginForm";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-const AccountPage = ({
-  detail: { details, loading },
-  getDetails,
-  isMobile
-}) => {
+const AccountPage = ({ detail: { details, loading }, getDetails }) => {
   useEffect(() => {
     getDetails();
     //eslint-disable-next-line
@@ -23,13 +18,12 @@ const AccountPage = ({
     return <CircularProgress />;
   } else {
     const {
-      outlet: { name, alias, footer_description }
+      outlet: { alias, name, footer_description }
     } = details.value;
 
     return (
-      <Layout>
+      <Layout footer_description={footer_description} name={name}>
         <LoginForm alias={alias} />
-        <Footer name={name} footer_description={footer_description} />
       </Layout>
     );
   }
@@ -40,7 +34,7 @@ AccountPage.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  detail: state.detail
+  detail: state.details
 });
 
 export default connect(mapStateToProps, { getDetails })(AccountPage);

@@ -2,4 +2,6 @@ export const GET_DETAILS = "GET_DETAILS";
 export const DETAILS_ERROR = "DETAILS_ERROR";
 export const GET_SERVICES = "GET_SERVICES";
 export const SERVICES_ERROR = "SERVICES_ERROR";
+export const GET_FOOD_RATINGS = "GET_FOOD_RATINGS";
+export const FOOD_RATINGS_ERROR = "FOOD_RATINGS_ERROR";
 export const SET_LOADING = "SET_LOADING";
