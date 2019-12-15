@@ -23,7 +23,6 @@ export const getServices = () => async dispatch => {
         }
       );
       const data = await res.json();
-
       // Save time and data for local storage as well to use for the next three hours
       localStorage.setItem("services", JSON.stringify(data));
       localStorage.setItem("initTime", JSON.parse(date.getTime()));

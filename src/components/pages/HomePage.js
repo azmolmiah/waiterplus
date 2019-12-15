@@ -26,6 +26,8 @@ const HomePage = ({
     //eslint-disable-next-line
   }, []);
 
+  console.log(services, details);
+
   if (loading || services === null || details === null) {
     return (
       <div style={{ position: "absolute", top: "50%", left: "50%" }}>
@@ -33,7 +35,7 @@ const HomePage = ({
       </div>
     );
   } else {
-    const { formated_opening_times } = services[0];
+    const { formated_opening_times, discount } = services[0];
 
     const {
       outlet: {
@@ -56,7 +58,7 @@ const HomePage = ({
 
     return (
       <Layout footer_description={footer_description} name={name}>
-        <Header alias={alias} title={meta_title} />
+        <Header alias={alias} title={meta_title} discount={discount} />
         <About
           header={name}
           sub={short_description}
