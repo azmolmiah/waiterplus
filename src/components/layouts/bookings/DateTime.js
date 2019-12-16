@@ -9,10 +9,9 @@ import {
 import Container from "@material-ui/core/Container";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
@@ -25,19 +24,35 @@ const useStyles = makeStyles(() => ({
   picker: {
     width: "100%"
   },
-  formControl: {
+  select: {
     width: "100%"
   },
-  select: {
-    padding: "0.5rem"
+  formControl: {
+    paddingTop: "1rem"
   }
 }));
 
 export default function MaterialUIPickers() {
+  const classes = useStyles();
   // The first commit of Material-UI
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [seat, setSeat] = useState(2);
   const [time, setTime] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  let quarterHours = ["00", "15", "30", "45"];
+  let times = [];
+  for (let i = 15; i < 24; i++) {
+    for (let j = 0; j < 4; j++) {
+      let time = i + ":" + quarterHours[j];
+      times.push(time);
+    }
+  }
+
+  selectedDate.setHours(Number(time.slice(0, 2)));
+  selectedDate.setMinutes(Number(time.slice(3, 5)));
+  selectedDate.setSeconds(0);
 
   const handleDateChange = date => {
     setSelectedDate(date);
@@ -47,52 +62,56 @@ export default function MaterialUIPickers() {
     setSeat(e.target.value);
   };
 
-  const onBtnClick = e => {
+  const onDateClick = e => {
     setTime(e.target.innerText);
   };
 
-  const classes = useStyles();
-
-  let quarterHours = ["00", "15", "30", "45"];
-  let times = [];
-  for (let i = 0; i < 24; i++) {
-    for (let j = 0; j < 4; j++) {
-      let time = i + ":" + quarterHours[j];
-      if (i < 10) {
-        time = "0" + time;
-      }
-      times.push(time);
-    }
-  }
-
-  console.log(time, selectedDate, seat);
+  const onSubmit = e => {
+    console.log(`Customer name: ${name}`);
+    console.log(`Customer email:${email}`);
+    console.log(`Number of seats: ${seat}`);
+    console.log(`Date and time selected: ${selectedDate}`);
+    e.preventDefault();
+  };
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Container className={classes.root} maxWidth="md">
-        <h1>Find a table</h1>
-        <Grid container justify="space-between">
-          <Grid item md={6} xs={9}>
-            <KeyboardDatePicker
-              margin="normal"
-              id="date-picker-dialog"
-              label="Date (Click Icon)"
-              format="dd/MM/yyyy"
-              value={selectedDate}
-              onChange={handleDateChange}
-              KeyboardButtonProps={{
-                "aria-label": "change date"
-              }}
-              className={classes.picker}
+      <form>
+        <Container className={classes.root} maxWidth="md">
+          <h1 style={{ margin: 0 }}>Find a table</h1>
+          <Grid container justify="space-between">
+            <TextField
+              id="Name"
+              label="Name"
+              name="name"
+              className={classes.button}
+              required
             />
-          </Grid>
+            <TextField
+              id="Email"
+              label="Email"
+              name="email"
+              className={classes.button}
+              required
+            />
+            <Grid item md={6} xs={9}>
+              <KeyboardDatePicker
+                margin="normal"
+                id="date-picker-dialog"
+                label="Date (Click Icon)"
+                format="dd/MM/yyyy"
+                value={selectedDate}
+                onChange={handleDateChange}
+                KeyboardButtonProps={{
+                  "aria-label": "change date"
+                }}
+                className={classes.picker}
+              />
+            </Grid>
 
-          <Grid item md={6} xs={2}>
-            <FormControl className={classes.formControl}>
-              <InputLabel id="demo-simple-select-label">Seats</InputLabel>
+            <Grid item md={6} xs={2} className={classes.formControl}>
+              <InputLabel>Seats</InputLabel>
               <Select
-                labelid="demo-simple-select-label"
-                id="demo-simple-select"
                 value={seat}
                 onChange={handleChange}
                 className={classes.select}
@@ -100,39 +119,49 @@ export default function MaterialUIPickers() {
                 <MenuItem value={2}>2</MenuItem>
                 <MenuItem value={3}>3</MenuItem>
                 <MenuItem value={4}>4</MenuItem>
-                <MenuItem value={4}>5</MenuItem>
-                <MenuItem value={4}>6</MenuItem>
-                <MenuItem value={4}>7</MenuItem>
-                <MenuItem value={4}>8</MenuItem>
-                <MenuItem value={4}>9</MenuItem>
-                <MenuItem value={4}>10</MenuItem>
+                <MenuItem value={5}>5</MenuItem>
+                <MenuItem value={6}>6</MenuItem>
+                <MenuItem value={7}>7</MenuItem>
+                <MenuItem value={8}>8</MenuItem>
+                <MenuItem value={9}>9</MenuItem>
+                <MenuItem value={10}>10</MenuItem>
               </Select>
-            </FormControl>
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              justify="space-between"
+              alignItems="center"
+              style={{ marginTop: "0.5rem" }}
+            >
+              {times.map((individualTime, index) => {
+                return (
+                  <Grid item lg={3} xs={3} key={index}>
+                    <Button
+                      variant="outlined"
+                      color="default"
+                      className={classes.button}
+                      onClick={onDateClick}
+                    >
+                      {individualTime}
+                    </Button>
+                  </Grid>
+                );
+              })}
+            </Grid>
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              className={classes.button}
+              onClick={onSubmit}
+              style={{ marginTop: "1rem" }}
+            >
+              Submit
+            </Button>
           </Grid>
-          <Divider />
-          <Grid
-            container
-            direction="row"
-            justify="space-between"
-            alignItems="center"
-          >
-            {times.map((individualTime, index) => {
-              return (
-                <Grid item lg={4} xs={4} key={index}>
-                  <Button
-                    variant="outlined"
-                    color="default"
-                    className={classes.button}
-                    onClick={onBtnClick}
-                  >
-                    {individualTime}
-                  </Button>
-                </Grid>
-              );
-            })}
-          </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </form>
     </MuiPickersUtilsProvider>
   );
 }
