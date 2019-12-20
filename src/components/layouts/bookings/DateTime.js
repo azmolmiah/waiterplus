@@ -29,6 +29,10 @@ const useStyles = makeStyles(() => ({
   },
   formControl: {
     paddingTop: "1rem"
+  },
+  active: {
+    background: "#3f51b5",
+    color: "#ffffff"
   }
 }));
 
@@ -36,12 +40,12 @@ export default function MaterialUIPickers() {
   const classes = useStyles();
   // The first commit of Material-UI
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [time, setTime] = useState("");
   const [values, setValues] = useState({
     name: "",
     email: "",
     seats: 2
   });
-  const [time, setTime] = useState("");
 
   let quarterHours = ["00", "15", "30", "45"];
   let times = [];
@@ -69,6 +73,7 @@ export default function MaterialUIPickers() {
 
   const onDateClick = e => {
     setTime(e.target.innerText);
+    e.target.parentElement.classList.add(classes.active);
   };
 
   const onSubmit = e => {
@@ -81,7 +86,7 @@ export default function MaterialUIPickers() {
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <form>
         <Container className={classes.root} maxWidth="md">
-          <h1 style={{ margin: 0 }}>Find a table</h1>
+          <h1 style={{ margin: 0 }}>Book a table</h1>
           <Grid container justify="space-between">
             <TextField
               id="Name"
