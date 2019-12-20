@@ -36,14 +36,16 @@ export default function MaterialUIPickers() {
   const classes = useStyles();
   // The first commit of Material-UI
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [seat, setSeat] = useState(2);
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    seats: 2
+  });
   const [time, setTime] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
 
   let quarterHours = ["00", "15", "30", "45"];
   let times = [];
-  for (let i = 15; i < 24; i++) {
+  for (let i = 16; i < 24; i++) {
     for (let j = 0; j < 4; j++) {
       let time = i + ":" + quarterHours[j];
       times.push(time);
@@ -59,7 +61,10 @@ export default function MaterialUIPickers() {
   };
 
   const handleChange = e => {
-    setSeat(e.target.value);
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    });
   };
 
   const onDateClick = e => {
@@ -67,9 +72,7 @@ export default function MaterialUIPickers() {
   };
 
   const onSubmit = e => {
-    console.log(`Customer name: ${name}`);
-    console.log(`Customer email:${email}`);
-    console.log(`Number of seats: ${seat}`);
+    console.log(values);
     console.log(`Date and time selected: ${selectedDate}`);
     e.preventDefault();
   };
@@ -85,6 +88,7 @@ export default function MaterialUIPickers() {
               label="Name"
               name="name"
               className={classes.button}
+              onChange={handleChange}
               required
             />
             <TextField
@@ -92,6 +96,7 @@ export default function MaterialUIPickers() {
               label="Email"
               name="email"
               className={classes.button}
+              onChange={handleChange}
               required
             />
             <Grid item md={6} xs={9}>
@@ -112,7 +117,8 @@ export default function MaterialUIPickers() {
             <Grid item md={6} xs={2} className={classes.formControl}>
               <InputLabel>Seats</InputLabel>
               <Select
-                value={seat}
+                name="seat"
+                value={values.seats}
                 onChange={handleChange}
                 className={classes.select}
               >
