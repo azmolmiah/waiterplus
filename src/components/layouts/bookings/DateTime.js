@@ -38,7 +38,6 @@ const useStyles = makeStyles(() => ({
 
 export default function MaterialUIPickers() {
   const classes = useStyles();
-  // The first commit of Material-UI
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [time, setTime] = useState("");
   const [values, setValues] = useState({

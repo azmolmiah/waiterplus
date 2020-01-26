@@ -11,16 +11,13 @@ export const getFoodRatings = () => async dispatch => {
     setLoading();
     // Check if local storage is empty or 3 hours old/older
     if (localStorage.getItem("foodRatings") === null || diff >= threeHours) {
-      const res = await fetch(
-        "https://cors-anywhere.herokuapp.com/https://api.ratings.food.gov.uk/Establishments?name=yolo&address=WC2H%209NP",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-version": 2
-          }
+      const res = await fetch(process.env.FOOD_RATINGS, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-version": 2
         }
-      );
+      });
       const data = await res.json();
 
       // Save time and data for local storage as well to use for the next three hours

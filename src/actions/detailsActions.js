@@ -12,16 +12,13 @@ export const getDetails = () => async dispatch => {
     setLoading();
     // Check if local storage is empty or 3 hours old/older
     if (localStorage.getItem("details") === null || diff >= threeHours) {
-      const res = await fetch(
-        "https://waiterplus.uk/api/c/1.57.4/public/api/v2/fr/get_outlet_details",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            outlet: "modhubon"
-          }
+      const res = await fetch(process.env.OUTLET_DETAILS, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          outlet: "modhubon"
         }
-      );
+      });
       const data = await res.json();
       // Save time and data for local storage as well to use for the next three hours
       localStorage.setItem("details", JSON.stringify(data));
